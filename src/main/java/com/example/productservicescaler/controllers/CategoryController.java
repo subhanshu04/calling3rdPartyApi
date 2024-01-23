@@ -1,2 +1,9 @@
-package com.example.productservicescaler.controllers;public class CategoryController {
+package com.example.productservicescaler.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/categories")
+public class CategoryController {
 }
