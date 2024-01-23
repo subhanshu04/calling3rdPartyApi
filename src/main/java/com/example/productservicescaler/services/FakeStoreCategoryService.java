@@ -10,7 +10,7 @@ public class FakeStoreCategoryService implements CategoryService{
     }
 
     @Override
-    public String getCategoryByProductId(Long productId) {
+    public String getProductsInCategory(Long productId) {
         return null;
     }
 }

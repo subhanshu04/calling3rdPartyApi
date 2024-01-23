@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/product")
 public class ProductController {
 
-    private CategoryService categoryService;
     private ProductService productService;
 
-    public ProductController(CategoryService categoryService, ProductService productService) {
-        this.categoryService = categoryService;
+    public ProductController( ProductService productService) {
         this.productService = productService;
     }
 
@@ -37,5 +35,10 @@ public class ProductController {
     @PutMapping("/{product_id}")
     public String replaceProduct(@PathVariable String product_id){
         return null;
+    }
+
+    @DeleteMapping("/{productId}")
+    public String deleteProduct(@PathVariable("productId") Long productId) {
+        return "Deleting a product with id: " + productId;
     }
 }
