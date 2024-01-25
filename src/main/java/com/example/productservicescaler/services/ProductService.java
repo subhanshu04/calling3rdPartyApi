@@ -1,17 +1,21 @@
 package com.example.productservicescaler.services;
 
+import com.example.productservicescaler.dtos.FakeStoreProductDTO;
 import com.example.productservicescaler.dtos.ProductDTO;
+import com.example.productservicescaler.models.Product;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface ProductService {
-    String getAllProducts();
+    List<ProductDTO> getAllProducts();
 
-    String getSingleProduct(Long productId);
+    ProductDTO getSingleProduct(Long productId);
 
-    String addNewProduct(ProductDTO productDto);
+    ProductDTO addNewProduct(FakeStoreProductDTO fakeStoreProductDto);
 
-    String updateProduct(Long productId);
-
+    ProductDTO updateProduct(Long productId,ProductDTO product);
+    ProductDTO replaceProduct(Long productId,ProductDTO product);
     String deleteProduct(Long productId);
 }

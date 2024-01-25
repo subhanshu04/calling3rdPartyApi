@@ -1,15 +1,17 @@
 package com.example.productservicescaler.dtos;
 
-import com.example.productservicescaler.models.Category;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
-public class ProductDTO {
+@ToString
+public class FakeStoreProductDTO {
+    private Long id;
     private String title;
     private double price;
     private String description;
+    private String image;
     private String category;
-    private String imageUrl;
 }
