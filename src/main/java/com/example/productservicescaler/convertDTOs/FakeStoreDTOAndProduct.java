@@ -1,9 +1,7 @@
 package com.example.productservicescaler.convertDTOs;
 
-import com.example.productservicescaler.dtos.FakeStoreProductDTO;
+import com.example.productservicescaler.clients.FakeStoreClient.FakeStoreProductDTO;
 import com.example.productservicescaler.dtos.ProductDTO;
-import com.example.productservicescaler.models.Category;
-import com.example.productservicescaler.models.Product;
 
 
 public class FakeStoreDTOAndProduct {

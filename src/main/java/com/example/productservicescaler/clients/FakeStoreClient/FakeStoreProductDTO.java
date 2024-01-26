@@ -1,4 +1,4 @@
-package com.example.productservicescaler.dtos;
+package com.example.productservicescaler.clients.FakeStoreClient;
 
 import lombok.Getter;
 import lombok.Setter;

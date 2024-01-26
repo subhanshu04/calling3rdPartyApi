@@ -1,17 +1,17 @@
 package com.example.productservicescaler.services;
 
-import com.example.productservicescaler.dtos.FakeStoreProductDTO;
+import com.example.productservicescaler.clients.FakeStoreClient.FakeStoreProductDTO;
 import com.example.productservicescaler.dtos.ProductDTO;
-import com.example.productservicescaler.models.Product;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface ProductService {
     List<ProductDTO> getAllProducts();
 
-    ProductDTO getSingleProduct(Long productId);
+    Optional<ProductDTO> getSingleProduct(Long productId);
 
     ProductDTO addNewProduct(FakeStoreProductDTO fakeStoreProductDto);
 

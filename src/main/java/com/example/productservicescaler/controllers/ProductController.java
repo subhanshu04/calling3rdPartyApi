@@ -1,15 +1,16 @@
 package com.example.productservicescaler.controllers;
 
 import com.example.productservicescaler.convertDTOs.FakeStoreDTOAndProduct;
-import com.example.productservicescaler.dtos.FakeStoreProductDTO;
+import com.example.productservicescaler.clients.FakeStoreClient.FakeStoreProductDTO;
 import com.example.productservicescaler.dtos.ProductDTO;
-import com.example.productservicescaler.models.Product;
+import com.example.productservicescaler.exceptions.WrongIdException;
 import com.example.productservicescaler.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
@@ -22,8 +23,14 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> getSingleProduct(@PathVariable Long id){
-        return new ResponseEntity<>(productService.getSingleProduct(id), HttpStatus.OK);
+    public ResponseEntity<ProductDTO> getSingleProduct(@PathVariable Long id) throws WrongIdException {
+        Optional<ProductDTO> response = productService.getSingleProduct(id);
+        if(response.isEmpty()){
+            throw new WrongIdException("Wrong Id is provided.");
+        }
+        else{
+            return new ResponseEntity<>(response.get(),HttpStatus.OK);
+        }
     }
     @GetMapping("")
     public ResponseEntity<List<ProductDTO>> getAllProducts(){
@@ -36,18 +43,26 @@ public class ProductController {
 
     @PatchMapping("/{product_id}")
     public ResponseEntity<ProductDTO> updateProduct(@RequestBody FakeStoreProductDTO fakeStoreProductDTO,
-                                @PathVariable Long product_id){
+                                @PathVariable Long product_id) throws WrongIdException {
         ProductDTO productDTO =
                 FakeStoreDTOAndProduct.convertFakeStoreProductDTOToProduct(fakeStoreProductDTO);
-        return new ResponseEntity<>(productService.updateProduct(product_id,productDTO),HttpStatus.OK);
+        ProductDTO response = productService.updateProduct(product_id,productDTO);
+        if(response==null){
+            throw new WrongIdException("Wrong Id is provided");
+        }
+        return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
     @PutMapping("/{product_id}")
     public ResponseEntity<ProductDTO> replaceProduct(@RequestBody FakeStoreProductDTO fakeStoreProductDTO,
-                                                     @PathVariable Long product_id){
+                                                     @PathVariable Long product_id) throws WrongIdException {
         ProductDTO productDTO =
                 FakeStoreDTOAndProduct.convertFakeStoreProductDTOToProduct(fakeStoreProductDTO);
-        return new ResponseEntity<>(productService.replaceProduct(product_id,productDTO),HttpStatus.OK);
+        ProductDTO response = productService.replaceProduct(product_id,productDTO);
+        if(response==null){
+            throw new WrongIdException("Wrong Id is provided");
+        }
+        return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
     @DeleteMapping("/{productId}")
