@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>ecommerceBackend</artifactId>
+    <artifactId>callingThirdParty</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>productServiceScaler</name>
     <description>productServiceScaler</description>
