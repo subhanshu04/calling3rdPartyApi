@@ -15,12 +15,18 @@ public class SpringSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/product").hasRole("ADMIN")
+                        .requestMatchers("/product").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(withDefaults())
-                );
+                )
+                //Tell the jwt about the Custom JWT converter,
+                //CustomJWTConverter maps the JWT with manually added roles.SO that resource server can fetch that from JWT
+                .oauth2ResourceServer(oauth2 -> oauth2
+                        .jwt(jwt -> jwt
+                                .jwtAuthenticationConverter(new CustomJwtAuthenticationConverter())))
+        ;
         return http.build();
     }
 }
