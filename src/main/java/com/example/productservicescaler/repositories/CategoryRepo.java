@@ -19,4 +19,5 @@ public interface CategoryRepo extends JpaRepository<Category,Long> {
 
     List<Category> findByIdIn(List<Long> ids);
 
+    Optional<Category> findByName(String categoryName);
 }

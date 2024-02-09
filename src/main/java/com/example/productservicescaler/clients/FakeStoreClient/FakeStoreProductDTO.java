@@ -1,5 +1,6 @@
 package com.example.productservicescaler.clients.FakeStoreClient;
 
+import com.example.productservicescaler.models.Product;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

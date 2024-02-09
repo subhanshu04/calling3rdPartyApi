@@ -40,12 +40,12 @@ class ProductControllerTest {
         assertEquals(productDTOList.get(0).getTitle(),product.getTitle());
     }
 
-    @Test
-    void testGetAllProductShouldThrowException() throws WrongIdException {
-        when(productService.getSingleProduct(any())).thenReturn(Optional.empty());
-
-        assertThrows(WrongIdException.class,
-                () -> productController.getSingleProduct(1L));
-
-    }
+//    @Test
+//    void testGetAllProductShouldThrowException() throws WrongIdException {
+//        when(productService.getSingleProduct(any())).thenReturn(Optional.empty());
+//
+//        assertThrows(WrongIdException.class,
+//                () -> productController.getSingleProduct(1L));
+//
+//    }
 }

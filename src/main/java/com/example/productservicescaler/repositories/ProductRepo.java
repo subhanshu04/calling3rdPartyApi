@@ -14,4 +14,5 @@ public interface ProductRepo extends JpaRepository<Product,Long> {
             String title, String title2);
 
     List<Product> findProductByCategory_DescriptionContains(String category_description2);
+
 }

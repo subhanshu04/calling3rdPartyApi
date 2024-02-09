@@ -2,6 +2,7 @@ package com.example.productservicescaler.services;
 
 import com.example.productservicescaler.clients.FakeStoreClient.FakeStoreProductDTO;
 import com.example.productservicescaler.dtos.ProductDTO;
+import com.example.productservicescaler.exceptions.CategoryNotPresentException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface ProductService {
 
     Optional<ProductDTO> getSingleProduct(Long productId);
 
-    ProductDTO addNewProduct(FakeStoreProductDTO fakeStoreProductDto);
+    ProductDTO addNewProduct(FakeStoreProductDTO fakeStoreProductDto) throws CategoryNotPresentException;
 
     ProductDTO updateProduct(Long productId,ProductDTO product);
     ProductDTO replaceProduct(Long productId,ProductDTO product);

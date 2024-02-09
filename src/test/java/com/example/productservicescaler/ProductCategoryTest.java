@@ -23,15 +23,16 @@ public class ProductCategoryTest {
     @Transactional
     @Test
     void addProductCategory(){
-//        Category category = new Category();
-//        category.setName("Cloth");
-//        category.setDescription("Clothing material stuff");
-//        categoryRepo.save(category);
-//        Product product = new Product();
-//        product.setTitle("Pant");
-//        product.setPrice(500);
-//        product.setCategory(categoryRepo.findById(52L).get());
-//        productRepo.save(product);
+        Category category = new Category();
+        category.setName("Footwear");
+        category.setDescription("Footwear material stuff");
+        //categoryRepo.save(category);
+        Product product = new Product();
+        product.setId(1L);
+        product.setTitle("Nike air");
+        product.setPrice(10000);
+        //product.setCategory(category);
+        productRepo.save(product);
 //        List<Category> categories = categoryRepo.findByIdIn(List.of(1L, 52L));
 //        System.out.println("Category DB call completed");
 //        for(Category category : categories){
@@ -42,7 +43,7 @@ public class ProductCategoryTest {
 //        }
 //        System.out.println("Before explicit calling product");
 
-        List<Product> product = productRepo
-                .findProductByCategory_DescriptionContains("Clothing");
+//        List<Product> product = productRepo
+//                .findProductByCategory_DescriptionContains("Clothing");
     }
 }
