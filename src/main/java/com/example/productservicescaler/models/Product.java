@@ -2,9 +2,7 @@ package com.example.productservicescaler.models;
 
 import com.example.productservicescaler.clients.FakeStoreClient.FakeStoreProductDTO;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Fetch;
 
@@ -12,7 +10,9 @@ import org.hibernate.annotations.Fetch;
 @Setter
 @ToString
 @Entity
-public class Product extends BaseModel {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Product extends BaseModel{
     private String title;
     private double price;
     private String description;

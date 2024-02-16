@@ -9,7 +9,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class FakeStoreProductDTO {
-    private Long id;
     private String title;
     private double price;
     private String description;
